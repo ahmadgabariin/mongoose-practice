@@ -5,14 +5,14 @@ Feel free to ignore all of this and skip to the questions at the end
 var bodyParser = require('body-parser')
 var express = require('express')
 var app = express()
-
+const api = require(`./server/routers/api`)
 var request = require('request')
 var mongoose = require('mongoose')
 var Book = require("./models/BookModel")
 var Person = require("./models/PersonModel")
 
 mongoose.connect("mongodb://localhost/mongoose-practice")
-
+app.use(`/`,api)
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
